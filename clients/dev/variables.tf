@@ -30,9 +30,3 @@ variable "secrets" {
     })
     description = "Auth0 secrets"
 }
-
-variable "environment" {
-    type = string
-    description = "Environment"
-    default = "dev"
-}

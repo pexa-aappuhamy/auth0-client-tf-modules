@@ -18,6 +18,7 @@ variable client_metadata {
 variable environment {
     type = string
     description = "Environment"
+    default = "dev"
 }
 
 variable "client_grants" {
@@ -27,4 +28,10 @@ variable "client_grants" {
     scopes   = list(string)
   }))
   default = []
+}
+
+variable region {
+    type = string
+    description = "Auth0 region"
+    default = "au"
 }

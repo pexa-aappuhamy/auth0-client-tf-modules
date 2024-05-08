@@ -1,3 +1,8 @@
+locals {
+  directory_name = basename(path.cwd)
+  environment = local.directory_name == "common" ? var.environment : path.cwd
+}
+
 resource "auth0_client" this {
   name                                = var.client_name
   allowed_clients                     = []
@@ -64,10 +69,11 @@ resource "auth0_client_grant" this {
   scopes    = each.value.scopes
 }
 
-module "auth0_client_credentials" {
+module "auth0_client_credentials_store" {
   depends_on = [ auth0_client.this, auth0_client_credentials.this ]
-  source = "../credentials"
-  environment = var.environment
+  source = "../credentials-store"
+  environment = local.environment
+  region = var.region
   client_name = var.client_name
   client_credentials = {
     client_id = auth0_client.this.client_id

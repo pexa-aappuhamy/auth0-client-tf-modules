@@ -60,4 +60,11 @@ variable token_lifetime {
 variable environment {
     type = string
     description = "Environment"
+    default = "dev"
+}
+
+variable region {
+    type = string
+    description = "Auth0 region"
+    default = "au"
 }

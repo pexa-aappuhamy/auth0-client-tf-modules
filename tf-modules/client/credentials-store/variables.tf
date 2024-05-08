@@ -15,3 +15,8 @@ variable client_name {
     type = string
     description = "Auth0 client name"
 }
+
+variable region {
+    type = string
+    description = "Auth0 region"
+}
