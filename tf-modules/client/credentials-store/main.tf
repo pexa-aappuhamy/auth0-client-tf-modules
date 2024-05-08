@@ -1,5 +1,5 @@
 resource "aws_secretsmanager_secret" this {
-  name = format("auth0/%s/%s/%s", var.region, var.environment, lower(replace(var.client_name, " ", "-")))
+  name = format("auth0/%s/%s/client/%s", var.region, var.environment, lower(replace(var.client_name, " ", "-")))
   recovery_window_in_days = 0
 }
 
