@@ -58,6 +58,7 @@ resource "auth0_client_credentials" this {
 }
 
 module "auth0_client_credentials" {
+  depends_on = [ auth0_client.this, auth0_client_credentials.this ]
   source = "../credentials"
   environment = var.environment
   client_name = var.client_name
