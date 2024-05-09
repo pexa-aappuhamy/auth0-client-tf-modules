@@ -1,4 +1,1 @@
-test_regular_client_web_origins = [
-  "http://localhost:3000",
-  "http://localhost:3001"
-]
+id = "1234-5678-9012-3456"

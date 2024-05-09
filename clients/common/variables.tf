@@ -36,7 +36,7 @@ variable "environment" {
     description = "Environment"
 }
 
-variable test_regular_client_web_origins {
-  type = list(string)
-  description = "Web origins for the test regular client"
+variable id {
+  type = string
+  description = "Id for client metadata"
 }
