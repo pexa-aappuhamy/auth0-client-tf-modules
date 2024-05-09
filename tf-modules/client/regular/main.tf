@@ -1,6 +1,9 @@
 locals {
   directory_name = basename(path.cwd)
-  environment = local.directory_name == "common" ? var.environment : path.cwd
+  split_directory = split("/", local.directory_name)
+  environment_list = ["dev", "non-prod", "staging", "prod"]
+  dir_environment = [for dir in local.split_directory : dir if contains(local.environment_list, dir)]
+  environment = local.directory_name == "common" ? var.environment : join(",",local.dir_environment)
 }
 
 resource "auth0_client" this {
